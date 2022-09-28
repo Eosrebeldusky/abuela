@@ -1,4 +1,11 @@
 .tuvieja{
     display: block;
-    padding: 10px;
+    padding: 10px;    
+
+}
+
+.tuvieja img{
+    max-height: 90;
+    max-width: 180;
+
 }

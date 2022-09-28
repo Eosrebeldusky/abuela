@@ -10,6 +10,8 @@
   /* Style the links inside the navigation bar */
   .topnav li {
     float: left;
+    margin-left: 1px;
+    padding:2px;
     display: block;
     color: #6a7e21;
     text-align: center;
