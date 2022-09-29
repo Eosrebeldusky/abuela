@@ -1,6 +1,6 @@
-
-
-function Pedido(){
+import React from "react";
+import { TextField } from "@mui/material";
+function Shop(){
 
 return(
         <div> 
@@ -11,4 +11,4 @@ return(
 )
 }
 
-export default Pedido;
+export default Shop;
