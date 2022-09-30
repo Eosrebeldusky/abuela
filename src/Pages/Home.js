@@ -15,15 +15,9 @@ function Home(){
 
 
     return(
-            <div>
-                <Menu/>
+            <div>                
                 <h1>Leichulis</h1>
-                <Box    display="flex"
-                        justifyContent="center"
-                        alignItems="center"
-                        minHeight="30vh">
-                {misProductos}                
-                </Box>                      
+                {misProductos}                                      
             </div>    
         )
 }
