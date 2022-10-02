@@ -8,6 +8,7 @@ import Shop from './Pages/Shop';
 import {BrowserRouter,Routes,Route,Switch} from "react-router-dom";
 import Presents from './Pages/Presents';
 import Menu from './Components/Menu';
+import Details from './Pages/Details';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/bathnbody" element= {<BathBody/>} exact/>
           <Route path="/present" element= {<Presents/>} exact/>          
           <Route path="/shop" element= {<Shop/>} exact/>
+          <Route path="/details" element= {<Details/>} exact/>
           </Routes>
         </BrowserRouter>
           

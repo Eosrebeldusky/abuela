@@ -1,13 +1,13 @@
 import React from 'react'
 
 function Details(props){
-    const id = props.match.params.id;
+    
     console.log('Golosa, aca estas viendo el detalle')
+    console.log(props.id)
 
 return(
     <div>
-        <h1>acadetalles y tu puta vieja</h1>
-        
+        <h1>acadetalles</h1>        
     </div>
     )
 }
