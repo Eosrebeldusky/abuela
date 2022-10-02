@@ -6,10 +6,6 @@ import Typography from '@mui/material/Typography';
 import PrimaryButton from '../PrimaryButton';
 import '../Styles/cardStyles.css';
 
-
-
-
-
 export default function BasicCard(props) {
    
 
@@ -20,24 +16,23 @@ export default function BasicCard(props) {
 
   return (
 
-    <div className='tuvieja'>
-      
-      <Card sx={{ maxWidth: 445 }}>      
+    <div className='tuvieja'>      
+      <Card sx={{ maxWidth: 445 }}>
         <CardContent>
-        <Typography gutterBottom variant="h5" component="div">            
-            {id}
-          </Typography>          
-          <Typography gutterBottom variant="h5" component="div">            
+        <Typography gutterBottom variant="h5" component="div">
+            {props.id}
+          </Typography>
+          <Typography gutterBottom variant="h5" component="div">
             {props.categoria}
-          </Typography>          
+          </Typography>
           <Typography variant="body2" color="text.secondary">
-            {props.titulo}            
+            {props.titulo}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {props.precio}            
           </Typography>  
-          <PrimaryButton/>                  
-        </CardContent>        
+          <PrimaryButton id={id}/>
+        </CardContent>
     </Card>
     
     </div>

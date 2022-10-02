@@ -10,8 +10,6 @@ function Home(){
                 ];
 
     const misProductos = productosL.map((productos) => <Cards key={productos.id} titulo={productos.Titulo} categoria ={productos.categoria} precio={productos.precio} />);
-                    
-
 
     return(
             <div>                
