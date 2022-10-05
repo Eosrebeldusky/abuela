@@ -6,7 +6,7 @@ function PrimaryButton(props){
     const id = props.id
 
     return(
-        <Button variant="contained" color="primary"> <Link to="/details+id" >Detalles </Link> </Button>
+        <Button variant="contained" color="primary"> <Link to={"/details" + id} >Detalles </Link> </Button>
     )
 
 }

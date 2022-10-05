@@ -3,7 +3,7 @@ import React from 'react'
 function Details(props){
     
     console.log('Golosa, aca estas viendo el detalle')
-    console.log(props.id)
+    console.log(props.mathc.params.id)
 
 return(
     <div>

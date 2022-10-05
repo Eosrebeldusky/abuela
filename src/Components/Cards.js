@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import {Link} from "react-router-dom";
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import PrimaryButton from '../PrimaryButton';
+import PrimaryButton from './PrimaryButton';
 import '../Styles/cardStyles.css';
 
 export default function BasicCard(props) {
