@@ -5,12 +5,13 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import PrimaryButton from './PrimaryButton';
 import '../Styles/cardStyles.css';
-
+import { Button } from '@mui/material';
 export default function BasicCard(props) {
    
 
  
-      const id= props.id
+      const id = props.id
+      console.log(id)
 
 //<Link to={"/Details/"+id}> </Link> 
 
@@ -20,7 +21,7 @@ export default function BasicCard(props) {
       <Card sx={{ maxWidth: 445 }}>
         <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-            {props.id}
+            {id}
           </Typography>
           <Typography gutterBottom variant="h5" component="div">
             {props.categoria}
@@ -30,8 +31,10 @@ export default function BasicCard(props) {
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {props.precio}            
-          </Typography>  
+          </Typography>
           <PrimaryButton id={id}/>
+          
+          
         </CardContent>
     </Card>
     
