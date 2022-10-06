@@ -13,9 +13,7 @@ export default function BasicCard(props) {
       const id = props.id
       console.log(id)
 
-//<Link to={"/Details/"+id}> </Link> 
-
-  return (
+      return (
 
     <div className='tuvieja'>      
       <Card sx={{ maxWidth: 445 }}>
