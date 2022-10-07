@@ -6,10 +6,10 @@ import Typography from '@mui/material/Typography';
 import PrimaryButton from './PrimaryButton';
 import '../Styles/cardStyles.css';
 
-export default function BasicCard(props) {
-   
+export default function BasicCard(props, {handleDrawerOpen}) {
  
-      const {id} = props
+ 
+      const {id,categoria,titulo,precio} = props
       console.log(id)
 
       return (
@@ -21,15 +21,15 @@ export default function BasicCard(props) {
             {id}
           </Typography>
           <Typography gutterBottom variant="h5" component="div">
-            {props.categoria}
+            {categoria}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {props.titulo}
+            {titulo}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {props.precio}            
+            {precio}            
           </Typography>
-          
+          <button onClick={handleDrawerOpen}> tuvieja</button>
           <PrimaryButton id={id}/>         
           
         </CardContent>

@@ -26,8 +26,7 @@ const productosL = [{id:1, Titulo:'Vela Floreada', categoria:'Vela', precio:'300
                         {id:4,Titulo:'Tu bieja',categoria:'carajo dijo la princesa', precio:'Mucho'},
                 ];
     
-    const misProductos = productosL.map((productos) => 
-    <Cards id={productos.id} titulo={productos.Titulo} categoria ={productos.categoria} precio={productos.precio} />);
+    
 
 
 
@@ -76,20 +75,25 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-start',
 }));
 
+
 export default function PersistentDrawerRight() {
+
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
+    console.log('abirmos')
   };
 
   const handleDrawerClose = () => {
     setOpen(false);
   };
 
-
-
+  const misProductos = productosL.map((productos) => 
+    <Cards id={productos.id} titulo={productos.Titulo} categoria ={productos.categoria} precio={productos.precio} 
+    handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose}
+    />);
 
 
   return (
@@ -105,7 +109,7 @@ export default function PersistentDrawerRight() {
             aria-label="open drawer"
             edge="end"
             onClick={handleDrawerOpen}
-            sx={{ ...(open && { display: 'none' }) }}
+            sx={{ ...(open && { display: 'none' }) }} //Esto esconde el menu hamburguesa ojo porque lo vamos a necesitar para la funcionalidad del boton
           >
             <MenuIcon />
           </IconButton>
@@ -118,7 +122,13 @@ export default function PersistentDrawerRight() {
       {misProductos}
       <button onClick={handleDrawerOpen}>Details</button>
       </Main>
-      <Drawer
+
+
+
+      {/*A partir de aca esta el cajon que se abre*/}
+
+
+      <Drawer 
         sx={{
           width: drawerWidth,
           flexShrink: 0,
