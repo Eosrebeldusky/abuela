@@ -1,16 +1,15 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import {Link} from "react-router-dom";
+
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import PrimaryButton from './PrimaryButton';
 import '../Styles/cardStyles.css';
-import { Button } from '@mui/material';
+
 export default function BasicCard(props) {
    
-
  
-      const id = props.id
+      const {id} = props
       console.log(id)
 
       return (
@@ -30,8 +29,7 @@ export default function BasicCard(props) {
           <Typography variant="body2" color="text.secondary">
             {props.precio}            
           </Typography>
-          <PrimaryButton id={id}/>
-          
+          <PrimaryButton id={id}/>         
           
         </CardContent>
     </Card>

@@ -1,5 +1,6 @@
 import Cards from "../Components/Cards";
-import React from "react";
+import React  from "react";
+
 function Home(){
 
     
@@ -8,8 +9,8 @@ function Home(){
                         {id:3,Titulo:'Vela Aromatica',categoria:'Vela', precio:'3100'},
                         {id:4,Titulo:'Tu bieja',categoria:'carajo dijo la princesa', precio:'Mucho'},
                 ];
-
-    const misProductos = productosL.map((productos) => <Cards id={productos.id} titulo={productos.Titulo} categoria ={productos.categoria} precio={productos.precio} />);
+    
+    const    misProductos = productosL.map((productos) => <Cards id={productos.id} titulo={productos.Titulo} categoria ={productos.categoria} precio={productos.precio} />);
 
     return(
             <div>                

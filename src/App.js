@@ -1,5 +1,6 @@
 import './App.css';
 import Home from './Pages/Home';
+import PersistentDrawerRight from './Pages/HomeCopy'
 //import Cart from './Pages/Cart';
 import BathBody from './Pages/BathBody';
 import HomeDeco from './Pages/HomeDeco';
@@ -20,7 +21,7 @@ function App() {
 
 
          <Routes>         
-          <Route path="/" element= {<Home/>} exact/>          
+          <Route path="/" element= {<PersistentDrawerRight/>} exact/>          
           <Route path="/homedeco" element= {<HomeDeco/>} exact/>          
           <Route path="/bathnbody" element= {<BathBody/>} exact/>
           <Route path="/present" element= {<Presents/>} exact/>          
