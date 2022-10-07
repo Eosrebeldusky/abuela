@@ -29,6 +29,7 @@ export default function BasicCard(props) {
           <Typography variant="body2" color="text.secondary">
             {props.precio}            
           </Typography>
+          
           <PrimaryButton id={id}/>         
           
         </CardContent>

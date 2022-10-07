@@ -26,8 +26,8 @@ const productosL = [{id:1, Titulo:'Vela Floreada', categoria:'Vela', precio:'300
                         {id:4,Titulo:'Tu bieja',categoria:'carajo dijo la princesa', precio:'Mucho'},
                 ];
     
-    const misProductos = productosL.map((productos) => <Cards id={productos.id} titulo={productos.Titulo} categoria ={productos.categoria} precio={productos.precio} />);
-
+    const misProductos = productosL.map((productos) => 
+    <Cards id={productos.id} titulo={productos.Titulo} categoria ={productos.categoria} precio={productos.precio} />);
 
 
 
@@ -116,7 +116,7 @@ export default function PersistentDrawerRight() {
         {/*<!--Aca va teexto>*/}
         <h1>Leichulis</h1>
       {misProductos}
-
+      <button onClick={handleDrawerOpen}>Details</button>
       </Main>
       <Drawer
         sx={{
