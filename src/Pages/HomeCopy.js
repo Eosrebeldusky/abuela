@@ -17,6 +17,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import Cards from '../Components/Cards'
+import Menu from '../Components/Menu';
 
 const drawerWidth = 750;
 //hardcodeo esta hueva
@@ -100,10 +101,8 @@ export default function PersistentDrawerRight() {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div">
-            Persistent drawer
-          </Typography>
+        <Toolbar>         
+          <Menu/>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -120,7 +119,7 @@ export default function PersistentDrawerRight() {
         {/*<!--Aca va teexto>*/}
         <h1>Leichulis</h1>
       {misProductos}
-      <button onClick={handleDrawerOpen}>Details</button>
+      {/*<button onClick={handleDrawerOpen}>Details</button>*/}
       </Main>
 
 

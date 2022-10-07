@@ -3,11 +3,11 @@ import { Button } from "@mui/material";
 
 
 function PrimaryButton(props){
-    const id = props.id
+    const {id,handleDrawerOpen} = props
     
 
     return(
-        <Button variant="contained" color="primary">Detalles </Button>
+        <Button variant="contained" color="primary" onClick={handleDrawerOpen}>Detalles </Button>
     )
 }
 

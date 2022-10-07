@@ -1,6 +1,6 @@
 
 .topnav {
-    background-color: rgb(155, 153, 72);
+    background-color: transparent;
     overflow: hidden;
   }
   
@@ -10,7 +10,7 @@
     margin-left: 1px;
     padding:2px;
     display: block;
-    color: #6a7e21;
+    color: #f823ff;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
