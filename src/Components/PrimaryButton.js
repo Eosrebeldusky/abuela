@@ -3,8 +3,8 @@ import { Button } from "@mui/material";
 import { useState } from "react";
 
 function PrimaryButton(props){
-    const [buttonText, setButtonText] = useState('DetaTuvielles')
     const {id,handleDrawerOpen, handleDrawerClose, open} = props
+    const [buttonText, setButtonText] = useState(id)     // ojo pq el id existe en el boton
     function handleText(){
         setButtonText('Chupala')
     }

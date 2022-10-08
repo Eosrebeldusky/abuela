@@ -26,9 +26,9 @@ function App() {
           <Route path="/shop" element= {<Shop/>} exact/>
           <Route path="/details/:id" element= {<Details/>} exact/>
           </Routes>
-        </BrowserRouter>
-          
+        </BrowserRouter>          
     </div>
+    
   );
 }
 

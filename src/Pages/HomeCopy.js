@@ -112,7 +112,7 @@ export default function PersistentDrawerRight() {
             aria-label="open drawer"
             edge="end"
             onClick={handleDrawerOpen}
-            sx={{ ...(open && { display: 'none' }) }} //Esto esconde el menu hamburguesa ojo porque lo vamos a necesitar para la funcionalidad del boton
+            sx={{...(open && { display: 'none' }) }} //Esto esconde el menu hamburguesa ojo porque lo vamos a necesitar para la funcionalidad del boton
           >
             <MenuIcon />
           </IconButton>
@@ -151,7 +151,7 @@ export default function PersistentDrawerRight() {
         <Divider />
         <h5>Aca subtitulo copado</h5>
         <Divider />
-        <Details/>
+        {misProductos}
       </Drawer>
     </Box>
   );
