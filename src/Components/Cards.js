@@ -9,7 +9,7 @@ import '../Styles/cardStyles.css';
 export default function BasicCard(props) {
  
  
-      const {id,categoria,titulo,precio,handleDrawerOpen} = props
+      const {id,categoria,titulo,precio,handleDrawerOpen, handleDrawerClose, open} = props
       console.log(id)
 
       return (
@@ -28,7 +28,8 @@ export default function BasicCard(props) {
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {precio}            
-          </Typography>          
+          </Typography>
+          <button onClick={open ? handleDrawerOpen: handleDrawerClose} >details</button>          
           <PrimaryButton id={id} handleDrawerOpen={handleDrawerOpen}/>                   
         </CardContent>
     </Card>

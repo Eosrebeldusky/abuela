@@ -84,7 +84,7 @@ export default function PersistentDrawerRight() {
 
   const handleDrawerOpen = () => {
     setOpen(true);
-    console.log('abirmos')
+    
   };
 
   const handleDrawerClose = () => {
@@ -93,7 +93,7 @@ export default function PersistentDrawerRight() {
 
   const misProductos = productosL.map((productos) => 
     <Cards id={productos.id} titulo={productos.Titulo} categoria ={productos.categoria} precio={productos.precio} 
-    handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose}
+    handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open}
     />);
 
 
@@ -145,18 +145,7 @@ export default function PersistentDrawerRight() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+        
         <Divider />
         {misProductos}
       </Drawer>
