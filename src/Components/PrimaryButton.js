@@ -1,13 +1,16 @@
 import React from "react";
 import { Button } from "@mui/material";
-
+import { useState } from "react";
 
 function PrimaryButton(props){
-    const {id,handleDrawerOpen} = props
-    
+    const [buttonText, setButtonText] = useState('DetaTuvielles')
+    const {id,handleDrawerOpen, handleDrawerClose, open} = props
+    function handleText(){
+        setButtonText('Chupala')
+    }
 
     return(
-        <Button variant="contained" color="primary" onClick={handleDrawerOpen}>Detalles </Button>
+        <Button variant="contained" color="primary" onClick={() => open ? handleDrawerClose()  : handleDrawerOpen() }>  {buttonText} </Button>
     )
 }
 

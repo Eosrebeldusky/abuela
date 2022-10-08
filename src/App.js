@@ -6,10 +6,10 @@ import BathBody from './Pages/BathBody';
 import HomeDeco from './Pages/HomeDeco';
 import React from "react";
 import Shop from './Pages/Shop';
-import {BrowserRouter,Routes,Route,Switch} from "react-router-dom";
+import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Presents from './Pages/Presents';
 import Menu from './Components/Menu';
-import Details from './Pages/Details';
+import Details from './Components/Details';
 
 function App() {
 
@@ -17,9 +17,7 @@ function App() {
 
     <div>        
         <BrowserRouter>
-        <Menu/>         
-
-
+        <Menu/>
          <Routes>         
           <Route path="/" element= {<PersistentDrawerRight/>} exact/>          
           <Route path="/homedeco" element= {<HomeDeco/>} exact/>          

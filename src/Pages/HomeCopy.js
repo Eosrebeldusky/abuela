@@ -18,8 +18,12 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import Cards from '../Components/Cards'
 import Menu from '../Components/Menu';
+import Details from '../Components/Details';
 
+
+//Largo del Drawer
 const drawerWidth = 750;
+
 //hardcodeo esta hueva
 const productosL = [{id:1, Titulo:'Vela Floreada', categoria:'Vela', precio:'300'},
                         {id:2,Titulo:'Vela de Bano',categoria:'Vela', precio:'200'},
@@ -76,22 +80,22 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-start',
 }));
 
-
+//a partir de aca esta la funcion que hace todo
 export default function PersistentDrawerRight() {
 
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false); //cargo estados de abierto cerrado
 
-  const handleDrawerOpen = () => {
+  const handleDrawerOpen = () => {   // funcion abrir
     setOpen(true);
     
   };
 
-  const handleDrawerClose = () => {
+  const handleDrawerClose = () => { // funcion cerrar
     setOpen(false);
   };
 
-  const misProductos = productosL.map((productos) => 
+  const misProductos = productosL.map((productos) =>  // aca itero productos  para poder verlos, esto se va a ir el dia que tenga un backend y le paso las funciones de abrir cerrar y el estado.
     <Cards id={productos.id} titulo={productos.Titulo} categoria ={productos.categoria} precio={productos.precio} 
     handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open}
     />);
@@ -118,10 +122,10 @@ export default function PersistentDrawerRight() {
         <DrawerHeader />
         {/*<!--Aca va teexto>*/}
         <h1>Leichulis</h1>
-      {misProductos}
+        {misProductos}
+      
       {/*<button onClick={handleDrawerOpen}>Details</button>*/}
       </Main>
-
 
 
       {/*A partir de aca esta el cajon que se abre*/}
@@ -141,13 +145,13 @@ export default function PersistentDrawerRight() {
       >
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <p>Tuvieja</p> : <p>Tuvieja2</p>}
+            {theme.direction === 'rtl' ? <p>Tuvieja</p> : <p>Aca titulo copado</p>}
           </IconButton>
         </DrawerHeader>
         <Divider />
-        
+        <h5>Aca subtitulo copado</h5>
         <Divider />
-        {misProductos}
+        <Details/>
       </Drawer>
     </Box>
   );

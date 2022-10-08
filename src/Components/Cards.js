@@ -28,9 +28,8 @@ export default function BasicCard(props) {
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {precio}            
-          </Typography>
-          <button onClick={open ? handleDrawerOpen: handleDrawerClose} >details</button>          
-          <PrimaryButton id={id} handleDrawerOpen={handleDrawerOpen}/>                   
+          </Typography>                 
+          <PrimaryButton id={id} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open} />                   
         </CardContent>
     </Card>
     
