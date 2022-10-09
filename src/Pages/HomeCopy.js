@@ -19,6 +19,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import Cards from '../Components/Cards'
 import Menu from '../Components/Menu';
 import Details from '../Components/Details';
+import { SliderValueLabelUnstyled } from '@mui/base';
 
 
 //Largo del Drawer
@@ -88,7 +89,6 @@ export default function PersistentDrawerRight() {
 
   const handleDrawerOpen = () => {   // funcion abrir
     setOpen(true);
-    
   };
 
   const handleDrawerClose = () => { // funcion cerrar
@@ -121,15 +121,13 @@ export default function PersistentDrawerRight() {
       <Main open={open}>
         <DrawerHeader />
         {/*<!--Aca va teexto>*/}
-        <h1>Leichulis</h1>
+        <h1>{misProductos.title}</h1>
         {misProductos}
       
       {/*<button onClick={handleDrawerOpen}>Details</button>*/}
       </Main>
 
-
       {/*A partir de aca esta el cajon que se abre*/}
-
 
       <Drawer 
         sx={{
@@ -150,8 +148,8 @@ export default function PersistentDrawerRight() {
         </DrawerHeader>
         <Divider />
         <h5>Aca subtitulo copado</h5>
-        <Divider />
-        {misProductos}
+        <Divider />        
+        <Details id={productosL.map((prod)=> prod.id)}  />
       </Drawer>
     </Box>
   );

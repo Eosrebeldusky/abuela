@@ -1,20 +1,18 @@
 
 import React from 'react'
 import ActionCard from './ActionCard'
-
+import {Route, Link, Routes, useParams} from 'react-router-dom';
 
 function Details(props){
-    
-    console.log('Golosa, aca estas viendo el detalle')
-    console.log('props',props.id)
-    const {id} = props
-
+    const params = useParams()
+    console.log('Golosa, aca estas viendo el detalle')    
+    console.log(params)
 
 return(
     <div>
         <h1>Detalle</h1>
-        <h3>pee</h3>
-            <ActionCard/>
+        <h3>{props.params}</h3>
+           {/* <ActionCard/>*/}
     </div>
     )
 }
