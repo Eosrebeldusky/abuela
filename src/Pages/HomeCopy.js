@@ -99,7 +99,7 @@ export default function PersistentDrawerRight() {
     <Cards id={productos.id} titulo={productos.Titulo} categoria ={productos.categoria} precio={productos.precio} 
     handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open}
     />);
-
+  console.log('prods', misProductos)
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -149,7 +149,7 @@ export default function PersistentDrawerRight() {
         <Divider />
         <h5>Aca subtitulo copado</h5>
         <Divider />        
-        <Details id={productosL.map((prod)=> prod.id)}  />
+        <Details />
       </Drawer>
     </Box>
   );
