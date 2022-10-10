@@ -3,14 +3,11 @@ import { Button } from "@mui/material";
 import { useState } from "react";
 
 function PrimaryButton(props){
-    const {id,handleDrawerOpen, handleDrawerClose, open} = props
-    const [buttonText, setButtonText] = useState(id)     // ojo pq el id existe en el boton
-    function handleText(){
-        setButtonText('Chupala')
-    }
-
+    const {key,handleDrawerOpen, handleDrawerClose, open} = props
+    const [buttonText, setButtonText] = useState('Detalles')   // ojo pq el id existe en el boton
+    
     return(
-        <Button variant="contained" color="primary" onClick={() => open ? handleDrawerClose()  : handleDrawerOpen() }>  {buttonText} </Button>
+        <Button variant="contained" color="primary" onClick={() => open ? handleDrawerClose()  : handleDrawerOpen(key) }>  {buttonText} </Button>
     )
 }
 

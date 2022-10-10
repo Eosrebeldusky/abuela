@@ -9,16 +9,17 @@ import '../Styles/cardStyles.css';
 export default function BasicCard(props) {
  
  
-      const {id,categoria,titulo,precio,handleDrawerOpen, handleDrawerClose, open} = props
-      console.log(id)
+      const {key,categoria,titulo,precio,handleDrawerOpen, handleDrawerClose, open} = props
+      console.log(key)
 
+      
       return (
 
     <div className='tuvieja'>      
       <Card sx={{ maxWidth: 445 }}>
         <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-            {id}
+            {key}
           </Typography>
           <Typography gutterBottom variant="h5" component="div">
             {categoria}
@@ -29,7 +30,7 @@ export default function BasicCard(props) {
           <Typography variant="body2" color="text.secondary">
             {precio}            
           </Typography>                 
-          <PrimaryButton id={id} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open} />                   
+          <PrimaryButton key={key} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open} />                   
         </CardContent>
     </Card>
     

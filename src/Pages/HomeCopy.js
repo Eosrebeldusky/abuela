@@ -87,19 +87,21 @@ export default function PersistentDrawerRight() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false); //cargo estados de abierto cerrado
 
-  const handleDrawerOpen = () => {   // funcion abrir
+  const handleDrawerOpen = (key) => { //funcion abrir
+    console.log('encontrado', key)
     setOpen(true);
-  };
+    };
 
   const handleDrawerClose = () => { // funcion cerrar
     setOpen(false);
   };
 
-  const misProductos = productosL.map((productos) =>  // aca itero productos  para poder verlos, esto se va a ir el dia que tenga un backend y le paso las funciones de abrir cerrar y el estado.
-    <Cards id={productos.id} titulo={productos.Titulo} categoria ={productos.categoria} precio={productos.precio} 
+  const misProductos = productosL.map((productos) => // aca itero productos  para poder verlos, esto se va a ir el dia que tenga un backend y le paso las funciones de abrir cerrar y el estado.
+  <Cards key={productos.id} titulo={productos.Titulo} categoria ={productos.categoria} precio={productos.precio} 
     handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open}
-    />);
-  console.log('prods', misProductos)
+    />
+  );
+
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -122,13 +124,12 @@ export default function PersistentDrawerRight() {
         <DrawerHeader />
         {/*<!--Aca va teexto>*/}
         <h1>{misProductos.title}</h1>
-        {misProductos}
+        {misProductos}      
       
-      {/*<button onClick={handleDrawerOpen}>Details</button>*/}
       </Main>
 
-      {/*A partir de aca esta el cajon que se abre*/}
 
+      {/*A partir de aca esta el cajon que se abre*/}
       <Drawer 
         sx={{
           width: drawerWidth,
@@ -149,7 +150,7 @@ export default function PersistentDrawerRight() {
         <Divider />
         <h5>Aca subtitulo copado</h5>
         <Divider />        
-        <Details />
+        {misProductos}
       </Drawer>
     </Box>
   );
