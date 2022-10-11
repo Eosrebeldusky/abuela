@@ -9,10 +9,8 @@ import '../Styles/cardStyles.css';
 export default function BasicCard(props) {
  
  
-      const {key,categoria,titulo,precio,handleDrawerOpen, handleDrawerClose, open} = props
-      console.log(key)
-
-      
+      const {key,categoria,titulo, descripcion, precio,handleDrawerOpen, handleDrawerClose, open,sdk } = props
+            
       return (
 
     <div className='tuvieja'>      
@@ -22,15 +20,15 @@ export default function BasicCard(props) {
             {key}
           </Typography>
           <Typography gutterBottom variant="h5" component="div">
-            {categoria}
+          {titulo}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {titulo}
+          <Typography variant="body2" color="text.secondary">            
+            {categoria}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {precio}            
           </Typography>                 
-          <PrimaryButton key={key} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open} />                   
+          <PrimaryButton sdk={sdk} titulo={titulo} precio={precio} categoria={categoria} descripcion={descripcion} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open} />                   
         </CardContent>
     </Card>
     

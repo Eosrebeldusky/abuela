@@ -20,16 +20,17 @@ import Cards from '../Components/Cards'
 import Menu from '../Components/Menu';
 import Details from '../Components/Details';
 import { SliderValueLabelUnstyled } from '@mui/base';
-
+import { DEFAULT_ATTRIBUTE } from '@mui/system/cssVars/getInitColorSchemeScript';
+import { useEffect } from 'react';
 
 //Largo del Drawer
 const drawerWidth = 750;
 
 //hardcodeo esta hueva
-const productosL = [{id:1, Titulo:'Vela Floreada', categoria:'Vela', precio:'300'},
-                        {id:2,Titulo:'Vela de Bano',categoria:'Vela', precio:'200'},
-                        {id:3,Titulo:'Vela Aromatica',categoria:'Vela', precio:'3100'},
-                        {id:4,Titulo:'Tu bieja',categoria:'carajo dijo la princesa', precio:'Mucho'},
+const productosL = [{sdk:1, id:1, Titulo:'Vela Floreada', categoria:'Vela', precio:'300'},
+                    {sdk:2, id:2,Titulo:'Vela de Bano',categoria:'Vela', precio:'200'},
+                    {sdk:3,id:3,Titulo:'Vela Aromatica',categoria:'Vela', precio:'3100'},
+                    {sdk:4, id:4,Titulo:'Tu bieja',categoria:'carajo dijo la princesa', precio:'Mucho'},
                 ];
     
     
@@ -81,23 +82,31 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-start',
 }));
 
+
+
 //a partir de aca esta la funcion que hace todo
 export default function PersistentDrawerRight() {
 
   const theme = useTheme();
   const [open, setOpen] = React.useState(false); //cargo estados de abierto cerrado
+  const [details, setDetails] = React.useState('');
 
-  const handleDrawerOpen = (key) => { //funcion abrir
-    console.log('encontrado', key)
+  const renderBitch = (sdk, titulo, precio, categoria, descripcion) =>{
+    console.log('encontrado',titulo)
+    setDetails(<Details sdk={sdk} titulo={titulo} precio={precio} categoria={categoria}/>)
+  }
+
+  const handleDrawerOpen = (sdk,titulo, precio, categoria, descripcion) => { //funcion abrir  
     setOpen(true);
-    };
+    renderBitch(sdk,titulo,precio,categoria, descripcion);        
+  };
 
   const handleDrawerClose = () => { // funcion cerrar
     setOpen(false);
   };
 
   const misProductos = productosL.map((productos) => // aca itero productos  para poder verlos, esto se va a ir el dia que tenga un backend y le paso las funciones de abrir cerrar y el estado.
-  <Cards key={productos.id} titulo={productos.Titulo} categoria ={productos.categoria} precio={productos.precio} 
+  <Cards key={productos.id} sdk={productos.sdk} titulo={productos.Titulo} categoria ={productos.categoria} precio={productos.precio} 
     handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open}
     />
   );
@@ -128,7 +137,6 @@ export default function PersistentDrawerRight() {
       
       </Main>
 
-
       {/*A partir de aca esta el cajon que se abre*/}
       <Drawer 
         sx={{
@@ -150,7 +158,7 @@ export default function PersistentDrawerRight() {
         <Divider />
         <h5>Aca subtitulo copado</h5>
         <Divider />        
-        {misProductos}
+        {details}
       </Drawer>
     </Box>
   );
