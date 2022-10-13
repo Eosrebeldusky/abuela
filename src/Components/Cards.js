@@ -27,9 +27,9 @@ export default function BasicCard(props) {
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {precio}            
-          </Typography>                 
+          </Typography>                           
           <PrimaryButton sdk={sdk} titulo={titulo} precio={precio} categoria={categoria} descripcion={descripcion} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open} />                   
-        </CardContent>
+          </CardContent>
     </Card>
     
     </div>

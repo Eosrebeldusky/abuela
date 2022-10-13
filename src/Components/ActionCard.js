@@ -5,9 +5,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import PrimaryButton from './PrimaryButton';
 export default function ActionCard(props) {
 
- const {id, Titulo, categoria, precio} = props
+ const {id, Titulo, categoria, precio, descripcion,open, handleDrawerClose} = props
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
@@ -21,11 +22,15 @@ export default function ActionCard(props) {
           <Typography gutterBottom variant="h5" component="div">
             {Titulo}
           </Typography>
+          <Typography gutterBottom variant="h5" component="div">
+            {categoria}
+          </Typography>
           <Typography variant="body2" color="text.secondary">
             {precio}
           </Typography>
         </CardContent>
       </CardActionArea>
+      
       <WhatsAppIcon/>
     </Card>
   );

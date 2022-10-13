@@ -24,7 +24,7 @@ import { DEFAULT_ATTRIBUTE } from '@mui/system/cssVars/getInitColorSchemeScript'
 import { useEffect } from 'react';
 
 //Largo del Drawer
-const drawerWidth = 750;
+const drawerWidth = 450;
 
 //hardcodeo esta hueva
 const productosL = [{sdk:1, id:1, Titulo:'Vela Floreada', categoria:'Vela', precio:'300'},
@@ -89,16 +89,18 @@ export default function PersistentDrawerRight() {
 
   const theme = useTheme();
   const [open, setOpen] = React.useState(false); //cargo estados de abierto cerrado
-  const [details, setDetails] = React.useState('');
+  const [details, setDetails] = React.useState('');  
+
+
 
   const renderBitch = (sdk, titulo, precio, categoria, descripcion) =>{
     console.log('encontrado',titulo)
-    setDetails(<Details sdk={sdk} titulo={titulo} precio={precio} categoria={categoria}/>)
+    setDetails(<Details sdk={sdk} titulo={titulo} precio={precio} categoria={categoria} open={open}/>)
   }
 
   const handleDrawerOpen = (sdk,titulo, precio, categoria, descripcion) => { //funcion abrir  
-    setOpen(true);
-    renderBitch(sdk,titulo,precio,categoria, descripcion);        
+    setOpen(true);    
+    renderBitch(sdk,titulo,precio,categoria, descripcion);         
   };
 
   const handleDrawerClose = () => { // funcion cerrar
@@ -149,14 +151,15 @@ export default function PersistentDrawerRight() {
         variant="persistent"
         anchor="right"
         open={open}
+        
       >
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <p>Tuvieja</p> : <p>Aca titulo copado</p>}
+            {theme.direction === 'rtl' ? <p>Tuvieja</p> : <p>Volver</p>}
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <h5>Aca subtitulo copado</h5>
+        <h5>Iconos</h5>
         <Divider />        
         {details}
       </Drawer>
