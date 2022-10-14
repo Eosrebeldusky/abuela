@@ -8,7 +8,7 @@ function PrimaryButton(props){
         
    
     return(        
-        <Button variant="contained" color="primary" sx={{...(open && { display: 'disbled' }) }} onClick={() => open ? handleDrawerClose() : handleDrawerOpen(sdk,titulo,precio,categoria,descripcion)}>  {buttonText} </Button>            
+        <Button variant="contained" color="primary"onClick={()=> handleDrawerOpen(sdk,titulo,precio,categoria,descripcion)}>  {buttonText} </Button>            
     )
 }
 

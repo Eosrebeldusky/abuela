@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import PrimaryButton from './PrimaryButton';
+import ReturnButton from './ReturnButton';
 export default function ActionCard(props) {
 
  const {id, Titulo, categoria, precio, descripcion,open, handleDrawerClose} = props
@@ -30,8 +30,7 @@ export default function ActionCard(props) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      
-      <WhatsAppIcon/>
+      <WhatsAppIcon/>      
     </Card>
   );
 }

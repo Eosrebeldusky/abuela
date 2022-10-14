@@ -22,7 +22,7 @@ import Details from '../Components/Details';
 import { SliderValueLabelUnstyled } from '@mui/base';
 import { DEFAULT_ATTRIBUTE } from '@mui/system/cssVars/getInitColorSchemeScript';
 import { useEffect } from 'react';
-
+import { Button } from '@mui/material';
 //Largo del Drawer
 const drawerWidth = 450;
 
@@ -136,7 +136,7 @@ export default function PersistentDrawerRight() {
         {/*<!--Aca va teexto>*/}
         <h1>{misProductos.title}</h1>
         {misProductos}      
-      
+     
       </Main>
 
       {/*A partir de aca esta el cajon que se abre*/}
@@ -162,6 +162,7 @@ export default function PersistentDrawerRight() {
         <h5>Iconos</h5>
         <Divider />        
         {details}
+        <Button onClick={()=>handleDrawerClose()}>Cerrar </Button>
       </Drawer>
     </Box>
   );
