@@ -8,9 +8,9 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import ReturnButton from './ReturnButton';
 export default function ActionCard(props) {
 
- const {id, Titulo, categoria, precio, descripcion,open, handleDrawerClose} = props
+ const {Titulo, categoria, precio, descripcion,open, drawerWidth } = props
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: drawerWidth }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -24,6 +24,9 @@ export default function ActionCard(props) {
           </Typography>
           <Typography gutterBottom variant="h5" component="div">
             {categoria}
+          </Typography>
+          <Typography gutterBottom variant="h5" component="div">
+            {descripcion}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {precio}

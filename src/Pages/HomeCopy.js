@@ -95,7 +95,7 @@ export default function PersistentDrawerRight() {
 
   const renderBitch = (sdk, titulo, precio, categoria, descripcion) =>{
     console.log('encontrado',titulo)
-    setDetails(<Details sdk={sdk} titulo={titulo} precio={precio} categoria={categoria} open={open}/>)
+    setDetails(<Details sdk={sdk} titulo={titulo} precio={precio} categoria={categoria} open={open} drawerWidth={drawerWidth}/>)
   }
 
   const handleDrawerOpen = (sdk,titulo, precio, categoria, descripcion) => { //funcion abrir  
@@ -162,7 +162,9 @@ export default function PersistentDrawerRight() {
         <h5>Iconos</h5>
         <Divider />        
         {details}
+        <Divider/>
         <Button onClick={()=>handleDrawerClose()}>Cerrar </Button>
+        <Divider/>
       </Drawer>
     </Box>
   );
