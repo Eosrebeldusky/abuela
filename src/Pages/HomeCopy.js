@@ -27,10 +27,10 @@ import { Button } from '@mui/material';
 const drawerWidth = 450;
 
 //hardcodeo esta hueva
-const productosL = [{sdk:1, id:1, Titulo:'Vela Floreada', categoria:'Vela', precio:'300'},
-                    {sdk:2, id:2,Titulo:'Vela de Bano',categoria:'Vela', precio:'200'},
-                    {sdk:3,id:3,Titulo:'Vela Aromatica',categoria:'Vela', precio:'3100'},
-                    {sdk:4, id:4,Titulo:'Tu bieja',categoria:'carajo dijo la princesa', precio:'Mucho'},
+const productosL = [{sdk:1, id:1, Titulo:'Vela Floreada', categoria:'Vela', precio:'300', descripcion:'Una vela re copada1'},
+                    {sdk:2, id:2,Titulo:'Vela de Bano',categoria:'Vela', precio:'200', descripcion:'Una vela re copada2'},
+                    {sdk:3,id:3,Titulo:'Vela Aromatica',categoria:'Vela', precio:'3100', descripcion:'Una vela re copada3'},
+                    {sdk:4, id:4,Titulo:'Tu bieja',categoria:'carajo dijo la princesa', precio:'Mucho', descripcion:'Una vela re copada4'},
                 ];
     
     
@@ -95,7 +95,7 @@ export default function PersistentDrawerRight() {
 
   const renderBitch = (sdk, titulo, precio, categoria, descripcion) =>{
     console.log('encontrado',titulo)
-    setDetails(<Details sdk={sdk} titulo={titulo} precio={precio} categoria={categoria} open={open} drawerWidth={drawerWidth}/>)
+    setDetails(<Details sdk={sdk} titulo={titulo} precio={precio} categoria={categoria} descripcion={descripcion} open={open} drawerWidth={drawerWidth}/>)
   }
 
   const handleDrawerOpen = (sdk,titulo, precio, categoria, descripcion) => { //funcion abrir  
@@ -119,16 +119,7 @@ export default function PersistentDrawerRight() {
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>         
-          <Menu/>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="end"
-            onClick={handleDrawerOpen}
-            sx={{...(open && { display: 'none' }) }} //Esto esconde el menu hamburguesa ojo porque lo vamos a necesitar para la funcionalidad del boton
-          >
-            <MenuIcon />
-          </IconButton>
+          <Menu/>        
         </Toolbar>
       </AppBar>
       <Main open={open}>
