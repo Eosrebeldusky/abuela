@@ -1,10 +1,16 @@
-import React from "react";
-import { TextField,Button } from "@mui/material";
+import React, { useState } from "react";
+import { Box, TextField,Button,  FormGroup, FormControl,InputLabel, Input, FormHelperText } from "@mui/material";
 
 function Register (){
+    const [email,setEmail] = useState('')
 
-    const handleSubmit = () =>{
-        alert('Enviado')
+    const handleSubmit = (e)=> {
+        alert('EnviadoSubm')
+        e.preventDefault()
+    }
+
+    function handleChange(){
+        
     }
 
     const handleRegister = () =>{
@@ -14,14 +20,18 @@ function Register (){
     return (
         <>
         <h1>Account</h1>
-        <form onSubmit={handleSubmit}>
+
+        <Box component='Form' onSubmit={handleSubmit} sx={{
+        '& .MuiTextField-root': { m:2, width: '25ch' },
+      }}>        
         <TextField id="filled-basic" label="email" variant="filled" />
         <TextField id="filled-basic" label="userName" variant="filled" />
         <TextField id="filled-basic" label="country" variant="filled" />
         <TextField id="filled-basic" label="password" variant="filled" />
         <input type="submit"></input>
-        </form>
+        
         <Button onClick={handleRegister}>Registrarse</Button>
+        </Box>
         </>
     )
 }
