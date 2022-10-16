@@ -15,9 +15,8 @@ return(
             <TextField id="filled-basic" label="Nombre" variant="filled" />
             <TextField id="filled-basic" label="Telefono" variant="filled" />
             <TextField id="filled-basic" label="Observaciones" variant="filled" />
-            
             <Button onClick={handleSubmit}> Enviar Consulta</Button>
-            <input type="submit"></input>
+            <input variant='Primary' type="submit"></input>
             </Box>
             </form>            
         </div>

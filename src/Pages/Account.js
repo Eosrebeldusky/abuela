@@ -1,10 +1,18 @@
 import React from "react";
-
+import { TextField } from "@mui/material";
 function Account (){
 
+    const handleSubmit = () =>{
+        alert('Enviado')
+    }
     return (
-
-        <div> <h1>Account</h1></div>
+        <>
+        <h1>Account</h1>
+        <form onSubmit={handleSubmit}>
+        <TextField id="filled-basic" label="email" variant="filled" />
+        <TextField id="filled-basic" label="password" variant="filled" />
+        </form>
+        </>
     )
 }
 
