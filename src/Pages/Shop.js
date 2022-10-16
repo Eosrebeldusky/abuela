@@ -1,12 +1,23 @@
 import React from "react";
-import { TextField } from "@mui/material";
+import { TextField, Button } from "@mui/material";
+
 function Shop(){
 
+    const handleSubmit = () =>{
+        alert('tuvieja por ahora')
+    }
 return(
         <div> 
-            <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-            <TextField id="filled-basic" label="Filled" variant="filled" />
-            <TextField id="standard-basic" label="Standard" variant="standard" />
+            <h1>Contacto</h1>
+            <h2>Mandamos un WhatsApp y responderemos tus dudas</h2>
+            <form onSubmit={handleSubmit}>
+            <TextField id="filled-basic" label="Nombre" variant="filled" />
+            <TextField id="filled-basic" label="Telefono" variant="filled" />
+            <TextField id="filled-basic" label="Observaciones" variant="filled" />
+            <Button onClick={handleSubmit}> Enviar Consulta</Button>
+            <input type="submit"></input>
+            </form>
+            
         </div>
 )
 }

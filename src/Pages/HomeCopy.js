@@ -11,7 +11,7 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Cards from '../Components/Cards'
 import Details from '../Components/Details';
-
+import Menu from '../Components/Menu'
 
 import { Button } from '@mui/material';
 
@@ -112,6 +112,7 @@ export default function PersistentDrawerRight() {
       <AppBar position="fixed" open={open}>
         <Toolbar>         
         <h1>Velas</h1>
+        <Menu/>
         </Toolbar>
       </AppBar>
       <Main open={open}>
