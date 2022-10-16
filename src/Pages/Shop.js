@@ -1,5 +1,5 @@
 import React from "react";
-import { TextField, Button } from "@mui/material";
+import { TextField, Button,Box } from "@mui/material";
 
 function Shop(){
 
@@ -11,13 +11,15 @@ return(
             <h1>Contacto</h1>
             <h2>Mandamos un WhatsApp y responderemos tus dudas</h2>
             <form onSubmit={handleSubmit}>
+                <Box sx={{ display: 'flex'}}>
             <TextField id="filled-basic" label="Nombre" variant="filled" />
             <TextField id="filled-basic" label="Telefono" variant="filled" />
             <TextField id="filled-basic" label="Observaciones" variant="filled" />
+            
             <Button onClick={handleSubmit}> Enviar Consulta</Button>
             <input type="submit"></input>
-            </form>
-            
+            </Box>
+            </form>            
         </div>
 )
 }
