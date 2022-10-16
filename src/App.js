@@ -10,6 +10,7 @@ import Presents from './Pages/Presents';
 import Menu from './Components/Menu';
 import Details from './Components/Details';
 import Account from './Pages/Account';
+import Register from './Pages/Register';
 function App() {
 
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element= {<PersistentDrawerRight/>} exact/>          
           <Route path="/shop" element= {<Shop/>} exact/>
           <Route path="/account" element= {<Account/>} exact/>
+          <Route path="/Register" element= {<Register/>} exact/>
           <Route path="/details/:id" element= {<Details/>} exact/>
           </Routes>
         </BrowserRouter>          
