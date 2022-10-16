@@ -118,7 +118,7 @@ export default function PersistentDrawerRight() {
       <Main open={open}>
         <DrawerHeader />
         {/*<!--Aca va teexto>*/}        
-        <img src={car} alt='vela' width = '720'px ></img>
+        
         <Box sx={{display:'inline'}}>
         {misProductos}      
         </Box>

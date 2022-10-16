@@ -1,12 +1,10 @@
 import './App.css';
-import Home from './Pages/Home';
 import PersistentDrawerRight from './Pages/HomeCopy'
 //import Cart from './Pages/Cart';
 
 import React from "react";
 import Shop from './Pages/Shop';
 import {BrowserRouter,Routes,Route} from "react-router-dom";
-import Presents from './Pages/Presents';
 import Menu from './Components/Menu';
 import Details from './Components/Details';
 import Account from './Pages/Account';
@@ -14,7 +12,6 @@ import Register from './Pages/Register';
 function App() {
 
   return (
-
     <div>        
         <BrowserRouter>
         <Menu/>
@@ -26,8 +23,7 @@ function App() {
           <Route path="/details/:id" element= {<Details/>} exact/>
           </Routes>
         </BrowserRouter>          
-    </div>
-    
+    </div>    
   );
 }
 
