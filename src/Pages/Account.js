@@ -1,5 +1,5 @@
 import React from "react";
-import { TextField } from "@mui/material";
+import { TextField,Button } from "@mui/material";
 function Account (){
 
     const handleSubmit = () =>{
@@ -11,7 +11,9 @@ function Account (){
         <form onSubmit={handleSubmit}>
         <TextField id="filled-basic" label="email" variant="filled" />
         <TextField id="filled-basic" label="password" variant="filled" />
+        <input type="submit"></input>
         </form>
+        <Button>Registrarse</Button>
         </>
     )
 }
