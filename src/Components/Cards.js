@@ -1,15 +1,15 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import PrimaryButton from './PrimaryButton';
 import '../Styles/cardStyles.css';
+import { CardMedia } from '@mui/material';
 
 export default function BasicCard(props) {
  
  
-      const {key,categoria,titulo, descripcion, precio,handleDrawerOpen, handleDrawerClose, open,sdk } = props
+      const {key,categoria,titulo, descripcion, precio,handleDrawerOpen, handleDrawerClose, open,sdk, img } = props
             
       return (
 
@@ -22,12 +22,18 @@ export default function BasicCard(props) {
           <Typography gutterBottom variant="h5" component="div">
           {titulo}
           </Typography>
+          <CardMedia           
+          component="img"
+          height="400"
+          image={img}
+          alt="carcito"
+        />
           <Typography variant="body2" color="text.secondary">            
             {categoria}
           </Typography>
           <Typography variant="body2" color="text.secondary">            
             {descripcion}
-          </Typography>
+          </Typography>          
           <Typography variant="body2" color="text.secondary">
             {precio}            
           </Typography>                           

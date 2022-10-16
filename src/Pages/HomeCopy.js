@@ -12,14 +12,14 @@ import IconButton from '@mui/material/IconButton';
 import Cards from '../Components/Cards'
 import Details from '../Components/Details';
 import Menu from '../Components/Menu'
-
+import car from '../img/car.png';
 import { Button } from '@mui/material';
 
 //Largo del Drawer
 const drawerWidth = 450;
 
 //hardcodeo esta hueva
-const productosL = [{sdk:1, id:1, Titulo:'Vela Floreada', categoria:'Vela', precio:'300', descripcion:'Una vela re copada1'},
+const productosL = [{sdk:1, id:1, Titulo:'Vela Floreada', categoria:'Vela', precio:'300', descripcion:'Una vela re copada1', img:{car}},
                     {sdk:2, id:2,Titulo:'Vela de Bano',categoria:'Vela', precio:'200', descripcion:'Una vela re copada2'},
                     {sdk:3,id:3,Titulo:'Vela Aromatica',categoria:'Vela', precio:'3100', descripcion:'Una vela re copada3'},
                     {sdk:4, id:4,Titulo:'Tu bieja',categoria:'carajo dijo la princesa', precio:'Mucho', descripcion:'Una vela re copada4'},
@@ -101,7 +101,7 @@ export default function PersistentDrawerRight() {
 
   const misProductos = productosL.map((productos) => // aca itero productos  para poder verlos, esto se va a ir el dia que tenga un backend y le paso las funciones de abrir cerrar y el estado.
   <Cards justify = 'center' key={productos.id} sdk={productos.sdk} titulo={productos.Titulo} categoria = {productos.categoria} precio={productos.precio} 
-    handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open}
+    handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open} img={productos.img}
     />
   );
 
@@ -118,7 +118,7 @@ export default function PersistentDrawerRight() {
       <Main open={open}>
         <DrawerHeader />
         {/*<!--Aca va teexto>*/}
-          
+         <img src={car} alt='vela' ></img>
         {misProductos}      
            </Main>
 
