@@ -1,5 +1,6 @@
 import React from "react";
 import { TextField,Button } from "@mui/material";
+import {Link} from "react-router-dom";
 function Account (){
 
     const handleSubmit = () =>{
@@ -13,7 +14,7 @@ function Account (){
         <TextField id="filled-basic" label="password" variant="filled" />
         <input type="submit"></input>
         </form>
-        <Button>Registrarse</Button>
+        <Button><Link to="/Register" >Registrarse </Link></Button>
         </>
     )
 }

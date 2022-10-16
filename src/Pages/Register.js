@@ -1,10 +1,16 @@
 import React from "react";
 import { TextField,Button } from "@mui/material";
+import Link from 'react-router-dom'
 function Register (){
 
     const handleSubmit = () =>{
         alert('Enviado')
     }
+
+    const handleRegister = () =>{
+        alert('Enviado')
+    }
+
     return (
         <>
         <h1>Account</h1>
@@ -15,7 +21,7 @@ function Register (){
         <TextField id="filled-basic" label="password" variant="filled" />
         <input type="submit"></input>
         </form>
-        <Button>Registrarse</Button>
+        <Button onClick={handleRegister}>Registrarse</Button>
         </>
     )
 }
