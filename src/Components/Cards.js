@@ -25,6 +25,9 @@ export default function BasicCard(props) {
           <Typography variant="body2" color="text.secondary">            
             {categoria}
           </Typography>
+          <Typography variant="body2" color="text.secondary">            
+            {descripcion}
+          </Typography>
           <Typography variant="body2" color="text.secondary">
             {precio}            
           </Typography>                           

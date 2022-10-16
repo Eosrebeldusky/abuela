@@ -9,20 +9,12 @@ import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import Cards from '../Components/Cards'
-import Menu from '../Components/Menu';
 import Details from '../Components/Details';
-import { SliderValueLabelUnstyled } from '@mui/base';
-import { DEFAULT_ATTRIBUTE } from '@mui/system/cssVars/getInitColorSchemeScript';
-import { useEffect } from 'react';
+
+
 import { Button } from '@mui/material';
+
 //Largo del Drawer
 const drawerWidth = 450;
 
@@ -95,7 +87,7 @@ export default function PersistentDrawerRight() {
 
   const renderBitch = (sdk, titulo, precio, categoria, descripcion) =>{
     console.log('encontrado',titulo)
-    setDetails(<Details sdk={sdk} titulo={titulo} precio={precio} categoria={categoria} descripcion={descripcion} open={open} drawerWidth={drawerWidth}/>)
+    setDetails(<Details sdk={sdk} titulo={titulo} precio={precio} categoria={categoria} descripcion={productosL.descripcion} open={open} drawerWidth={drawerWidth}/>)
   }
 
   const handleDrawerOpen = (sdk,titulo, precio, categoria, descripcion) => { //funcion abrir  
@@ -108,27 +100,26 @@ export default function PersistentDrawerRight() {
   };
 
   const misProductos = productosL.map((productos) => // aca itero productos  para poder verlos, esto se va a ir el dia que tenga un backend y le paso las funciones de abrir cerrar y el estado.
-  <Cards key={productos.id} sdk={productos.sdk} titulo={productos.Titulo} categoria ={productos.categoria} precio={productos.precio} 
+  <Cards justify = 'center' key={productos.id} sdk={productos.sdk} titulo={productos.Titulo} categoria = {productos.categoria} precio={productos.precio} 
     handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open}
     />
   );
 
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex'}}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>         
-          <Menu/>        
+        <h1>Velas</h1>
         </Toolbar>
       </AppBar>
       <Main open={open}>
         <DrawerHeader />
         {/*<!--Aca va teexto>*/}
-        <h1>{misProductos.title}</h1>
+          
         {misProductos}      
-     
-      </Main>
+           </Main>
 
       {/*A partir de aca esta el cajon que se abre*/}
       <Drawer 

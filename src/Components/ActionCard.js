@@ -5,10 +5,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import ReturnButton from './ReturnButton';
+
 export default function ActionCard(props) {
 
- const {Titulo, categoria, precio, descripcion,open, drawerWidth } = props
+ const {titulo, categoria, precio, descripcion,drawerWidth } = props
   return (
     <Card sx={{ maxWidth: drawerWidth }}>
       <CardActionArea>
@@ -20,7 +20,7 @@ export default function ActionCard(props) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {Titulo}
+            {titulo}
           </Typography>
           <Typography gutterBottom variant="h5" component="div">
             {categoria}
