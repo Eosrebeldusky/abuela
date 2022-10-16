@@ -117,9 +117,12 @@ export default function PersistentDrawerRight() {
       </AppBar>
       <Main open={open}>
         <DrawerHeader />
-        {/*<!--Aca va teexto>*/}
-         <img src={car} alt='vela' ></img>
+        {/*<!--Aca va teexto>*/}        
+        <img src={car} alt='vela' width = '720'px ></img>
+        <Box sx={{display:'inline'}}>
         {misProductos}      
+        </Box>
+        
            </Main>
 
       {/*A partir de aca esta el cajon que se abre*/}
