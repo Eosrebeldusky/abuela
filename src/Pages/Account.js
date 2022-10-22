@@ -9,7 +9,7 @@ function Account (){
     }
     return (
         <>
-        <h1>Account</h1>
+        <h1>Cuenta</h1>
         <form onSubmit={handleSubmit}>
         <TextField id="filled-basic" label="email" variant="filled" />
         <TextField id="filled-basic" label="password" variant="filled" />
