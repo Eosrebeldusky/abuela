@@ -14,6 +14,9 @@ import Details from '../Components/Details';
 import Menu from '../Components/Menu'
 import car from '../img/car.png';
 import { Button } from '@mui/material';
+import { useEffect } from 'react';
+import {db} from '../Services/Firebase'
+import { QuerySnapshot } from 'firebase/firestore';
 
 //Largo del Drawer
 const drawerWidth = 450;
@@ -24,7 +27,8 @@ const productosL = [{sdk:1, id:1, Titulo:'Vela Floreada', categoria:'Vela', prec
                     {sdk:3,id:3,Titulo:'Vela Aromatica',categoria:'Vela', precio:'3100', descripcion:'Una vela re copada3'},
                     {sdk:4, id:4,Titulo:'Tu bieja',categoria:'carajo dijo la princesa', precio:'Mucho', descripcion:'Una vela re copada4'},
                 ];
-    
+ 
+
     
 
 
@@ -104,6 +108,8 @@ export default function PersistentDrawerRight() {
     handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open} img={productos.img}
     />
   );
+
+
 
 
   return (
