@@ -17,7 +17,6 @@ import { Button } from '@mui/material';
 import { useEffect } from 'react';
 import { doc, getDoc } from "firebase/firestore";
 import db from '../Services/Firebase'
-
 import { collection, getDocs } from "firebase/firestore";
 
 
@@ -32,14 +31,14 @@ const productosL = [{sdk:1, id:1, Titulo:'Vela Floreada', categoria:'Vela', prec
                 ];
  
 
-const getProductos = async function(){      
+async function readDocument(){      
 const querySnapshot = await getDocs(collection(db, "velas"));
   querySnapshot.forEach((doc) => {
   console.log(`${doc.id} => ${doc.data()}`);
  });
 }
 
-getProductos()
+readDocument()
 
 
 

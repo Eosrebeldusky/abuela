@@ -1,7 +1,6 @@
 import './App.css';
 import PersistentDrawerRight from './Pages/HomeCopy'
 //import Cart from './Pages/Cart';
-import db from './Services/Firebase'
 import React from "react";
 import Shop from './Pages/Shop';
 import {BrowserRouter,Routes,Route} from "react-router-dom";
