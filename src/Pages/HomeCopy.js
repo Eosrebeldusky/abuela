@@ -12,29 +12,13 @@ import Details from '../Components/Details';
 import Menu from '../Components/Menu'
 import car from '../img/car.png';
 import { Button } from '@mui/material';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, } from "firebase/firestore";
 import { Firestore,getFirestore } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
+import {db,app,firestore} from '../Services/Firebase'
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyAydE2Xok68zlBVvPEqBK379BBNcjzcEhM",
-  authDomain: "velasleila.firebaseapp.com",
-  projectId: "velasleila",
-  storageBucket: "velasleila.appspot.com",
-  messagingSenderId: "810170723725",
-  appId: "1:810170723725:web:f17af75354a46e8ddb21c4",
-  measurementId: "G-SFZC4CMZSW"
-};
 
-const app = initializeApp(firebaseConfig);
-
-const firestore = getFirestore()
-const db = getFirestore(app)
 
 //Largo del Drawer
 const drawerWidth = 450;
@@ -52,8 +36,8 @@ const productosL = [{sdk:1, id:1, Titulo:'Vela Floreada', categoria:'Vela', prec
 
 async function readDocument(){      
 const querySnapshot = await getDocs(collection(db, 'velas'));
-  querySnapshot.forEach((doc) => {
-  console.log(`esta, read document, ${doc.id} => ${doc.data()}`);
+  querySnapshot.forEach((doc) => {  
+  console.log(`read document, ${doc.id} => ${doc.titulo}`);
  });
 }
 
