@@ -5,8 +5,6 @@ import Drawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import CssBaseline from '@mui/material/CssBaseline';
-import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Cards from '../Components/Cards'
@@ -14,11 +12,8 @@ import Details from '../Components/Details';
 import Menu from '../Components/Menu'
 import car from '../img/car.png';
 import { Button } from '@mui/material';
-import { useEffect } from 'react';
-import { doc, getDoc } from "firebase/firestore";
-import db from '../Services/Firebase'
+import { getAllConsole } from '../Services/FetchService';
 
-import { collection, getDocs } from "firebase/firestore";
 
 
 //Largo del Drawer
@@ -32,14 +27,13 @@ const productosL = [{sdk:1, id:1, Titulo:'Vela Floreada', categoria:'Vela', prec
                 ];
  
 
-const getProductos = async function(){      
-const querySnapshot = await getDocs(collection(db, "velas"));
-  querySnapshot.forEach((doc) => {
-  console.log(`${doc.id} => ${doc.data()}`);
- });
-}
 
-getProductos()
+
+
+
+
+              getAllConsole()
+
 
 
 
