@@ -12,11 +12,7 @@ import Details from '../Components/Details';
 import Menu from '../Components/Menu'
 import car from '../img/car.png';
 import { Button } from '@mui/material';
-import { collection, getDocs, } from "firebase/firestore";
-import { Firestore,getFirestore } from "firebase/firestore";
-import { initializeApp } from "firebase/app";
-import {db,app,firestore} from '../Services/Firebase'
-
+import { getAllConsole } from '../Services/FetchService';
 
 
 
@@ -34,14 +30,9 @@ const productosL = [{sdk:1, id:1, Titulo:'Vela Floreada', categoria:'Vela', prec
 
 
 
-async function readDocument(){      
-const querySnapshot = await getDocs(collection(db, 'velas'));
-  querySnapshot.forEach((doc) => {  
-  console.log(`read document, ${doc.id} => ${doc.titulo}`);
- });
-}
 
-readDocument()
+
+              getAllConsole()
 
 
 
