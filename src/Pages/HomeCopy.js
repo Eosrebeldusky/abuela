@@ -12,8 +12,9 @@ import Details from '../Components/Details';
 import Menu from '../Components/Menu'
 import car from '../img/car.png';
 import { Button } from '@mui/material';
-import { getAllConsole } from '../Services/FetchService';
-
+import { useEffect,useState } from 'react';
+import {db,app,firestore} from '../Services/Config'
+import { collection,doc, getDocs} from "firebase/firestore";
 
 
 //Largo del Drawer
@@ -26,15 +27,6 @@ const productosL = [{sdk:1, id:1, Titulo:'Vela Floreada', categoria:'Vela', prec
                     {sdk:4, id:4,Titulo:'Tu bieja',categoria:'carajo dijo la princesa', precio:'Mucho', descripcion:'Una vela re copada4'},
                 ];
  
-
-
-
-
-
-
-              getAllConsole()
-
-
 
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -90,8 +82,22 @@ export default function PersistentDrawerRight() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false); //cargo estados de abierto cerrado
   const [details, setDetails] = React.useState('');  
+  const [vela, setVela] = useState(["hola"])
 
+  async function velasRancias(){
+    const velasCollectionRef = collection(db,"velas")
+    await getDocs(velasCollectionRef)
+    .then(res=>{
+        const velaL = res.docs.map(doc=>({data:doc.data(), id:doc.id}))
+        console.log(velaL)
+        
+        setVela(velaL)    
+    })
+  }
 
+  useEffect(() =>{
+    velasRancias()
+  },[])
 
   const renderBitch = (sdk, titulo, precio, categoria, descripcion) =>{
     console.log('encontrado',titulo)
@@ -107,6 +113,13 @@ export default function PersistentDrawerRight() {
     setOpen(false);
   };
 
+
+  const velas = vela.map((productos) => // aca itero productos  para poder verlos, esto se va a ir el dia que tenga un backend y le paso las funciones de abrir cerrar y el estado.
+  <Cards justify = 'center' key={productos.id} sdk={productos.sdk} titulo={productos.titulo} categoria = {productos.categoria} precio={productos.precio} 
+    handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open} img={productos.img}
+    />);
+
+    
   const misProductos = productosL.map((productos) => // aca itero productos  para poder verlos, esto se va a ir el dia que tenga un backend y le paso las funciones de abrir cerrar y el estado.
   <Cards justify = 'center' key={productos.id} sdk={productos.sdk} titulo={productos.Titulo} categoria = {productos.categoria} precio={productos.precio} 
     handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open} img={productos.img}
@@ -122,6 +135,7 @@ export default function PersistentDrawerRight() {
       <AppBar position="fixed" open={open}>
         <Toolbar>         
         <h1>Velas</h1>
+        
         <Menu/>
         </Toolbar>
       </AppBar>
@@ -130,7 +144,8 @@ export default function PersistentDrawerRight() {
         {/*<!--Aca va teexto>*/}        
         
         <Box sx={{display:'inline'}}>
-        {misProductos}      
+        {misProductos}    
+        {velas}  
         </Box>
         
            </Main>
