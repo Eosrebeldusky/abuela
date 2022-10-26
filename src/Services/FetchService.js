@@ -1,13 +1,22 @@
 import {db,app,firestore} from '../Services/Config'
-import { collection, getDocs, data} from "firebase/firestore";
+import { collection, getDocs} from "firebase/firestore";
 
 
-export const getAllConsole = () =>{
-    async function readDocument(){      
-        const querySnapshot = await getDocs(collection(db, 'velas'));
-          querySnapshot.forEach((doc) => {  
-          console.log(`read document, ${doc.id} => ${doc.data("titulo")}`);
-         });
+
+   async function readDocument(){      
+        const colref = collection(db, 'velas')
+        const querySnapshot = await getDocs(colref);
+        querySnapshot.forEach(doc=>{ console.log(doc.data())})
+        //return querySnapshot.forEach(doc => { doc.data()})
         }
-        readDocument()
-    }
+        /*
+        export const documento = async function readDocument(){      
+            const colref = collection(db, 'velas')
+            const querySnapshot = await getDocs(colref);
+            console.log(querySnapshot)
+            //return querySnapshot.forEach(doc => { doc.data()})
+            }
+        */
+
+export default readDocument;
+

@@ -12,7 +12,8 @@ import Details from '../Components/Details';
 import Menu from '../Components/Menu'
 import car from '../img/car.png';
 import { Button } from '@mui/material';
-import { getAllConsole } from '../Services/FetchService';
+import  documento  from '../Services/FetchService';
+import  readDocument  from '../Services/FetchService';
 
 
 
@@ -29,12 +30,7 @@ const productosL = [{sdk:1, id:1, Titulo:'Vela Floreada', categoria:'Vela', prec
 
 
 
-
-
-
-              getAllConsole()
-
-
+readDocument()
 
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
