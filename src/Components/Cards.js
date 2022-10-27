@@ -14,7 +14,7 @@ export default function BasicCard(props) {
       return (
 
     <div className='tuvieja'>      
-      <Card sx={{ maxWidth: 445, display:'block' }}>
+      <Card sx={{ maxWidth: 445, display:'flex' }}>
         <CardContent>
         <Typography gutterBottom variant="h5" component="div">
             {key}
@@ -24,8 +24,8 @@ export default function BasicCard(props) {
           </Typography>
           <CardMedia square         
           component="img"
-          height="400"
-          image={img}
+          height="250"
+          image={require('../img/car.png')}
           alt="carcito"
         />
           <Typography variant="body2" color="text.secondary">            
