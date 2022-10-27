@@ -13,8 +13,8 @@ import Menu from '../Components/Menu'
 import car from '../img/car.png';
 import { Button } from '@mui/material';
 import { useEffect,useState } from 'react';
-import {db,app,firestore} from '../Services/Config'
-import { collection,doc, getDocs} from "firebase/firestore";
+import {db} from '../Services/Config'
+import { collection,getDocs} from "firebase/firestore";
 
 
 //Largo del Drawer
@@ -88,9 +88,8 @@ export default function PersistentDrawerRight() {
     const velasCollectionRef = collection(db,"velas")
     await getDocs(velasCollectionRef)
     .then(res=>{
-        const velaL = res.docs.map(doc=>({data:doc.data()}))
+        const velaL = res.docs.map(doc=>({data:doc.data(),id:doc.id}))
         console.log(velaL)
-
         setVela(velaL)    
     })
   }
@@ -99,8 +98,7 @@ export default function PersistentDrawerRight() {
     velasRancias()
   },[])
 
-  const renderBitch = (sdk, titulo, precio, categoria, descripcion) =>{
-    console.log('encontrado',titulo)
+  const renderBitch = (sdk, titulo, precio, categoria, descripcion) =>{    
     setDetails(<Details sdk={sdk} titulo={titulo} precio={precio} categoria={categoria} descripcion={productosL.descripcion} open={open} drawerWidth={drawerWidth}/>)
   }
 
@@ -116,17 +114,17 @@ export default function PersistentDrawerRight() {
 
 
   const velas = vela.map(productos => <Cards justify = 'center' key={productos.id} sdk={productos.sdk} titulo={productos.data.titulo} categoria={productos.data.categoria} precio={productos.data.precio} 
-  handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open} img={productos.img} />) // aca itero productos  para poder verlos, esto se va a ir el dia que tenga un backend y le paso las funciones de abrir cerrar y el estado.
+  handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={'open'} img={productos.img} />) // aca itero productos  para poder verlos, esto se va a ir el dia que tenga un backend y le paso las funciones de abrir cerrar y el estado.
   
    
-    
+    /*
   const misProductos = productosL.map((productos) => // aca itero productos  para poder verlos, esto se va a ir el dia que tenga un backend y le paso las funciones de abrir cerrar y el estado.
-  <Cards justify = 'center' key={productos.id} sdk={productos.sdk} titulo={productos.Titulo} categoria = {productos.categoria} precio={productos.precio} 
-    handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open} img={productos.img}
+  <Cards justify = 'center' sdk={productos.sdk} key={productos.key} titulo={productos.Titulo} categoria = {productos.categoria} precio={productos.precio} 
+    handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={'open'} img={productos.img}
     />
   );
 
-
+*/
 
 
   return (
@@ -144,7 +142,7 @@ export default function PersistentDrawerRight() {
         {/*<!--Aca va teexto>*/}        
         
         <Box sx={{display:'inline'}}>
-        {misProductos}    
+           
         {velas}  
         </Box>
         

@@ -1,10 +1,10 @@
 import React from "react";
 import { Button } from "@mui/material";
-import { useState } from "react";
+
 
 function PrimaryButton(props){
     const {sdk, titulo, precio, categoria,  handleDrawerOpen, descripcion} = props
-    const [buttonText, setButtonText] = useState('Abrir Detalle')   // ojo pq el id existe en el boton
+    const buttonText ='Abrir Detalle'   // ojo pq el id existe en el boton
         
    
     return(        

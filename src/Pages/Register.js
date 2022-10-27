@@ -1,18 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { Box, TextField,Button} from "@mui/material";
 
 function Register (){
-    const [email,setEmail] = useState('')
+   // const [email,setEmail] = useState('')
 
     const handleSubmit = (e)=> {
         alert('EnviadoSubm')
         e.preventDefault()
     }
 
-    function handleChange(){
-        
-    }
-
+   
     const handleRegister = () =>{
         alert('Enviado')
     }
