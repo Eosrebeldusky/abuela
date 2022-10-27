@@ -1,6 +1,9 @@
 //Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getStorage, ref,getDownloadURL } from "firebase/storage";
+
+
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -24,4 +27,13 @@ const app = initializeApp(firebaseConfig);
 // Initialize Cloud Firestore and get a reference to the service
 const firestore = getFirestore()
 const db = getFirestore(app)
-export  {firestore,db, app}
+
+// Get a reference to the storage service, which is used to create references in your storage bucket
+const storage = getStorage();
+
+// Create a storage reference from our storage service
+const storageRef = ref(storage);
+const gsReference = ref(storage,'gs://velasleila.appspot.com/Captura desde 2022-10-24 16-14-04.png')
+
+
+export  {firestore,db, app, storageRef,gsReference}
