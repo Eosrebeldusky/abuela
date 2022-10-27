@@ -82,15 +82,15 @@ export default function PersistentDrawerRight() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false); //cargo estados de abierto cerrado
   const [details, setDetails] = React.useState('');  
-  const [vela, setVela] = useState(["hola"])
+  const [vela, setVela] = useState([])
 
   async function velasRancias(){
     const velasCollectionRef = collection(db,"velas")
     await getDocs(velasCollectionRef)
     .then(res=>{
-        const velaL = res.docs.map(doc=>({data:doc.data(), id:doc.id}))
+        const velaL = res.docs.map(doc=>({data:doc.data()}))
         console.log(velaL)
-        
+
         setVela(velaL)    
     })
   }
@@ -114,11 +114,11 @@ export default function PersistentDrawerRight() {
   };
 
 
-  const velas = vela.map((productos) => // aca itero productos  para poder verlos, esto se va a ir el dia que tenga un backend y le paso las funciones de abrir cerrar y el estado.
-  <Cards justify = 'center' key={productos.id} sdk={productos.sdk} titulo={productos.titulo} categoria = {productos.categoria} precio={productos.precio} 
-    handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open} img={productos.img}
-    />);
 
+  const velas = vela.map(productos => <Cards justify = 'center' key={productos.id} sdk={productos.sdk} titulo={productos.data.titulo} categoria={productos.data.categoria} precio={productos.data.precio} 
+  handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={open} img={productos.img} />) // aca itero productos  para poder verlos, esto se va a ir el dia que tenga un backend y le paso las funciones de abrir cerrar y el estado.
+  
+   
     
   const misProductos = productosL.map((productos) => // aca itero productos  para poder verlos, esto se va a ir el dia que tenga un backend y le paso las funciones de abrir cerrar y el estado.
   <Cards justify = 'center' key={productos.id} sdk={productos.sdk} titulo={productos.Titulo} categoria = {productos.categoria} precio={productos.precio} 
