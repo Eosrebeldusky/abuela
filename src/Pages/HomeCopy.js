@@ -13,7 +13,7 @@ import Menu from '../Components/Menu'
 import car from '../img/car.png';
 import { Button } from '@mui/material';
 import { useEffect,useState } from 'react';
-import {db} from '../Services/Config'
+import {db,storage,} from '../Services/Config'
 import { collection,getDocs} from "firebase/firestore";
 
 
@@ -26,7 +26,9 @@ const productosL = [{sdk:1, id:1, Titulo:'Vela Floreada', categoria:'Vela', prec
                     {sdk:3,id:3,Titulo:'Vela Aromatica',categoria:'Vela', precio:'3100', descripcion:'Una vela re copada3'},
                     {sdk:4, id:4,Titulo:'Tu bieja',categoria:'carajo dijo la princesa', precio:'Mucho', descripcion:'Una vela re copada4'},
                 ];
- 
+
+
+
 
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -83,20 +85,8 @@ export default function PersistentDrawerRight() {
   const [open, setOpen] = React.useState(false); //cargo estados de abierto cerrado
   const [details, setDetails] = React.useState('');  
   const [vela, setVela] = useState([])
-
-  async function velasRancias(){
-    const velasCollectionRef = collection(db,"velas")
-    await getDocs(velasCollectionRef)
-    .then(res=>{
-        const velaL = res.docs.map(doc=>({data:doc.data(),id:doc.id}))
-        console.log(velaL)
-        setVela(velaL)    
-    })
-  }
-
-  useEffect(() =>{
-    velasRancias()
-  },[])
+  const [url,setUrl] = useState("")
+  
 
   const renderBitch = (sdk, titulo, precio, categoria, descripcion) =>{    
     setDetails(<Details sdk={sdk} titulo={titulo} precio={precio} categoria={categoria} descripcion={productosL.descripcion} open={open} drawerWidth={drawerWidth}/>)
@@ -126,6 +116,19 @@ export default function PersistentDrawerRight() {
 
 */
 
+async function velasRancias(){
+  const velasCollectionRef = collection(db,"velas")
+  await getDocs(velasCollectionRef)
+  .then(res=>{
+      const velaL = res.docs.map(doc=>({data:doc.data(),id:doc.id}))
+      console.log(velaL)
+      setVela(velaL)        
+  })  
+}
+
+useEffect(() =>{
+  velasRancias()
+},[])
 
   return (
     <Box sx={{ display: 'flex'}}>
@@ -141,7 +144,7 @@ export default function PersistentDrawerRight() {
         <DrawerHeader />
         {/*<!--Aca va teexto>*/}        
         
-        <Box sx={{display:'inline'}}>
+        <Box sx={{display:'block'}}>
            
         {velas}  
         </Box>

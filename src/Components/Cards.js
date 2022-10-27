@@ -5,13 +5,25 @@ import Typography from '@mui/material/Typography';
 import PrimaryButton from './PrimaryButton';
 import '../Styles/cardStyles.css';
 import { CardMedia } from '@mui/material';
+import {storageRef,gsReference} from '../Services/Config'
+import { getDownloadURL,getStorage, ref } from 'firebase/storage';
+
 
 export default function BasicCard(props) {
  
  
       const {key,categoria,titulo, descripcion, precio,handleDrawerOpen, handleDrawerClose,sdk, img } = props
-            
-      return (
+
+
+      const [image,setImage]  = React.useState("")
+      
+      const storage = getStorage();
+      getDownloadURL(ref(storage,gsReference))
+      .then((url)=>{setImage(url)}
+            )
+      
+      
+  return (
 
     <div className='tuvieja'>      
       <Card sx={{ maxWidth: 445, display:'flex' }}>
@@ -21,6 +33,7 @@ export default function BasicCard(props) {
           </Typography>
           <Typography gutterBottom variant="h5" component="div">
           {titulo}
+          {image}
           </Typography>
           <CardMedia square         
           component="img"
