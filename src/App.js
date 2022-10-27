@@ -12,11 +12,7 @@ import Register from './Pages/Register';
 
 
 function App() {
-
-
-
-
-  return (
+ return (
     <div>        
         <BrowserRouter>
         <Menu/>
