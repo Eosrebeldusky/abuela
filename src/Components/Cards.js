@@ -5,22 +5,14 @@ import Typography from '@mui/material/Typography';
 import PrimaryButton from './PrimaryButton';
 import '../Styles/cardStyles.css';
 import { CardMedia } from '@mui/material';
-import {storageRef,gsReference} from '../Services/Config'
-import { getDownloadURL,getStorage, ref } from 'firebase/storage';
+
 
 
 export default function BasicCard(props) {
  
  
-      const {key,categoria,titulo, descripcion, precio,handleDrawerOpen, handleDrawerClose,sdk, img } = props
+      const {key,categoria,titulo, descripcion, precio,handleDrawerOpen, handleDrawerClose,sdk, img, url } = props
 
-
-      const [image,setImage]  = React.useState("")
-      
-      const storage = getStorage();
-      getDownloadURL(ref(storage,gsReference))
-      .then((url)=>{setImage(url)}
-            )
       
       
   return (
@@ -32,14 +24,19 @@ export default function BasicCard(props) {
             {key}
           </Typography>
           <Typography gutterBottom variant="h5" component="div">
-          {titulo}
-          {image}
+          {titulo}          
           </Typography>
           <CardMedia square         
           component="img"
           height="250"
-          image={require('../img/car.png')}
-          alt="carcito"
+          image={img}
+          alt="imagen vela"
+        />
+        <CardMedia square         
+          component="img"
+          height="250"
+          image = {url}
+          alt="imagen vela2"
         />
           <Typography variant="body2" color="text.secondary">            
             {categoria}
@@ -48,9 +45,10 @@ export default function BasicCard(props) {
             {descripcion}
           </Typography>          
           <Typography variant="body2" color="text.secondary">
-            {precio}            
+            {precio}       
+            {url}     
           </Typography>                           
-          <PrimaryButton sdk={sdk} titulo={titulo} precio={precio} categoria={categoria} descripcion={descripcion} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={'open'} />                   
+          <PrimaryButton sdk={sdk} titulo={titulo} precio={precio} categoria={categoria} descripcion={descripcion} img={img} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={'open'} />                   
           </CardContent>
     </Card>
     

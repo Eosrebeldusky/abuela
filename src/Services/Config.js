@@ -33,7 +33,7 @@ const storage = getStorage();
 
 // Create a storage reference from our storage service
 const storageRef = ref(storage);
-const gsReference = ref(storage,'gs://velasleila.appspot.com/Captura desde 2022-10-24 16-14-04.png')
+const gsReference = ref(storage,'gs://velasleila.appspot.com/velas2jpeg')
+const listRef = ref(storage, 'gs://velasleila.appspot.com/');
 
-
-export  {firestore,db, app, storageRef,gsReference}
+export  {firestore,db, app, storageRef,gsReference,listRef}

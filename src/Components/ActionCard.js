@@ -8,15 +8,16 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 export default function ActionCard(props) {
 
- const {titulo, categoria, precio, descripcion,drawerWidth } = props
+ const {titulo, categoria, precio, descripcion,drawerWidth,img } = props
+ 
   return (
     <Card sx={{ maxWidth: drawerWidth }}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
+          image={img}
+          alt="vela detalle"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
