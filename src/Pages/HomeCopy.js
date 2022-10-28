@@ -15,7 +15,8 @@ import { Button } from '@mui/material';
 import { useEffect,useState } from 'react';
 import {db,storage,} from '../Services/Config'
 import { collection,getDocs} from "firebase/firestore";
-
+import {storageRef,gsReference,listRef} from '../Services/Config'
+import { getDownloadURL,getStorage, ref,listAll } from 'firebase/storage';
 
 //Largo del Drawer
 const drawerWidth = 450;
@@ -85,16 +86,16 @@ export default function PersistentDrawerRight() {
   const [open, setOpen] = React.useState(false); //cargo estados de abierto cerrado
   const [details, setDetails] = React.useState('');  
   const [vela, setVela] = useState([])
-  const [url,setUrl] = useState("")
+  const [img,setImg]  = useState("")
   
 
-  const renderBitch = (sdk, titulo, precio, categoria, descripcion) =>{    
-    setDetails(<Details sdk={sdk} titulo={titulo} precio={precio} categoria={categoria} descripcion={productosL.descripcion} open={open} drawerWidth={drawerWidth}/>)
+  const renderBitch = (sdk, titulo, precio, categoria, descripcion, img) =>{    
+    setDetails(<Details sdk={sdk} img={img} titulo={titulo} precio={precio} categoria={categoria} descripcion={productosL.descripcion} open={open} drawerWidth={drawerWidth}/>)
   }
 
-  const handleDrawerOpen = (sdk,titulo, precio, categoria, descripcion) => { //funcion abrir  
+  const handleDrawerOpen = (sdk,titulo, precio, categoria, descripcion,img) => { //funcion abrir  
     setOpen(true);    
-    renderBitch(sdk,titulo,precio,categoria, descripcion);         
+    renderBitch(sdk,titulo,precio,categoria, descripcion,img);         
   };
 
   const handleDrawerClose = () => { // funcion cerrar
@@ -103,11 +104,34 @@ export default function PersistentDrawerRight() {
 
 
 
-  const velas = vela.map(productos => <Cards justify = 'center' key={productos.id} sdk={productos.sdk} titulo={productos.data.titulo} categoria={productos.data.categoria} precio={productos.data.precio} 
-  handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={'open'} img={productos.img} />) // aca itero productos  para poder verlos, esto se va a ir el dia que tenga un backend y le paso las funciones de abrir cerrar y el estado.
+  const velas = vela.map(productos => <Cards justify = 'center' key={productos.id}  url={productos.data.url}   img={img} sdk={productos.data.sdk} titulo={productos.data.titulo} categoria={productos.data.categoria} precio={productos.data.precio} 
+  handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={'open'} />) // aca itero productos  para poder verlos, esto se va a ir el dia que tenga un backend y le paso las funciones de abrir cerrar y el estado.
   
+  
+
+  
+  
+      
+  const storage = getStorage();
+    getDownloadURL(ref(storage,gsReference))
+    .then((url)=>{
+      setImg(url)
+  })
+
+ /*
+  listAll(listRef)
+  .then((res) => { 
+    res.items.forEach((itemRef) => {
+      console.log('item',itemRef)
+    });
+  }).catch((error) => {
+    console.log('error 132',error)
+    // Uh-oh, an error occurred!
+  });
+
+
+
    
-    /*
   const misProductos = productosL.map((productos) => // aca itero productos  para poder verlos, esto se va a ir el dia que tenga un backend y le paso las funciones de abrir cerrar y el estado.
   <Cards justify = 'center' sdk={productos.sdk} key={productos.key} titulo={productos.Titulo} categoria = {productos.categoria} precio={productos.precio} 
     handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={'open'} img={productos.img}
@@ -121,7 +145,7 @@ async function velasRancias(){
   await getDocs(velasCollectionRef)
   .then(res=>{
       const velaL = res.docs.map(doc=>({data:doc.data(),id:doc.id}))
-      console.log(velaL)
+      console.log('vela',velaL)
       setVela(velaL)        
   })  
 }
@@ -129,6 +153,9 @@ async function velasRancias(){
 useEffect(() =>{
   velasRancias()
 },[])
+
+
+
 
   return (
     <Box sx={{ display: 'flex'}}>
