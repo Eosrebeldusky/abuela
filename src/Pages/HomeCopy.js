@@ -103,6 +103,22 @@ export default function PersistentDrawerRight() {
   };
 
 
+  async function velasRancias(){
+    const velasCollectionRef = collection(db,"velas")
+    await getDocs(velasCollectionRef)
+    .then(res=>{
+        const velaL = res.docs.map(doc=>({data:doc.data(),id:doc.id}))
+        console.log('vela',velaL)
+        setVela(velaL)        
+    })  
+  }
+  
+  useEffect(() =>{
+    velasRancias()
+  },[])
+  
+  
+
 
   const velas = vela.map(productos => <Cards justify = 'center' key={productos.id}  url={productos.data.url}   img={img} sdk={productos.data.sdk} titulo={productos.data.titulo} categoria={productos.data.categoria} precio={productos.data.precio} 
   handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose} open={'open'} />) // aca itero productos  para poder verlos, esto se va a ir el dia que tenga un backend y le paso las funciones de abrir cerrar y el estado.
@@ -139,20 +155,6 @@ export default function PersistentDrawerRight() {
   );
 
 */
-
-async function velasRancias(){
-  const velasCollectionRef = collection(db,"velas")
-  await getDocs(velasCollectionRef)
-  .then(res=>{
-      const velaL = res.docs.map(doc=>({data:doc.data(),id:doc.id}))
-      console.log('vela',velaL)
-      setVela(velaL)        
-  })  
-}
-
-useEffect(() =>{
-  velasRancias()
-},[])
 
 
 

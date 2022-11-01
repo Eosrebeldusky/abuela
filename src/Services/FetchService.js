@@ -9,7 +9,6 @@ async function velasRancias(){
         const velaL = res.docs.map(doc=>({data:doc.data(), id:doc.id}))
         console.log(velaL)    
     })
-
 }
 
 export default velasRancias;

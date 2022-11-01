@@ -11,6 +11,7 @@ function Menu(){
                     <li><Link to="/" >Home </Link></li>                   
                     <li><Link to="/shop" >Contacto</Link> </li>
                     <li><Link to="/account" >Mi Cuenta</Link> </li>
+                    <li><Link to="/Crud" >ABM</Link> </li>
                 </ul>
             </nav>
         </div>

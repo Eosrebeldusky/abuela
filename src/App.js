@@ -8,6 +8,7 @@ import Menu from './Components/Menu';
 import Details from './Components/Details';
 import Account from './Pages/Account';
 import Register from './Pages/Register';
+import Crud from './Pages/Crud';
 
 
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/account" element= {<Account/>} exact/>
           <Route path="/Register" element= {<Register/>} exact/>
           <Route path="/details/:id" element= {<Details/>} exact/>
+          <Route path="/Crud/" element= {<Crud/>} exact/>
           </Routes>
         </BrowserRouter>          
     </div>    
