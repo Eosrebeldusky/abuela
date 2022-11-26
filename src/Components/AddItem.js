@@ -1,11 +1,24 @@
-import React from "react";
+import React, {useState} from "react";
 
 
 function AddItem(){
 
-    const handleSubmit = e => {e.preventDefault(), console.log(e)}
+    
+    const [values,setValues] = useState({
+        titulo:'',
+        descripcion:'',
+        precio:'',
+        categoria:'',
+    })
 
+    const handleSubmit = e => {
+        e.preventDefault();
+        console.log(values)
+    }  
 
+    const handleChange = e =>{
+         
+    }
     
     return( 
         <>
