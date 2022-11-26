@@ -5,7 +5,7 @@ function Crud(){
 
     return(
         <>
-        <p>'Aca vamos a cargar un formulario para cargar cositas'</p>
+        <h1>Formulario de Carga</h1>
             <form>
                 <label>
                     Titulo:
