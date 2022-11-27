@@ -10,7 +10,6 @@ import IconButton from '@mui/material/IconButton';
 import Cards from '../Components/Cards'
 import Details from '../Components/Details';
 import Menu from '../Components/Menu'
-import car from '../img/car.png';
 import { Button } from '@mui/material';
 import { useEffect,useState } from 'react';
 import {db,storage,} from '../Services/Config'
@@ -21,14 +20,14 @@ import { getDownloadURL,getStorage, ref,listAll } from 'firebase/storage';
 //Largo del Drawer
 const drawerWidth = 450;
 
-//hardcodeo esta hueva
-const productosL = [{sdk:1, id:1, Titulo:'Vela Floreada', categoria:'Vela', precio:'300', descripcion:'Una vela re copada1', img:{car}},
+/*hardcodeo esta hueva
+const productosL = [{sdk:1, id:1, Titulo:'Vela Floreada', categoria:'Vela', precio:'300', descripcion:'Una vela re copada1',,
                     {sdk:2, id:2,Titulo:'Vela de Bano',categoria:'Vela', precio:'200', descripcion:'Una vela re copada2'},
                     {sdk:3,id:3,Titulo:'Vela Aromatica',categoria:'Vela', precio:'3100', descripcion:'Una vela re copada3'},
                     {sdk:4, id:4,Titulo:'Tu bieja',categoria:'carajo dijo la princesa', precio:'Mucho', descripcion:'Una vela re copada4'},
                 ];
 
-
+*/
 
 
 
@@ -90,7 +89,7 @@ export default function PersistentDrawerRight() {
   
 
   const renderBitch = (sdk, titulo, precio, categoria, descripcion, img) =>{    
-    setDetails(<Details sdk={sdk} img={img} titulo={titulo} precio={precio} categoria={categoria} descripcion={productosL.descripcion} open={open} drawerWidth={drawerWidth}/>)
+    setDetails(<Details sdk={sdk} img={img} titulo={titulo} precio={precio} categoria={categoria} descripcion={descripcion} open={open} drawerWidth={drawerWidth}/>)
   }
 
   const handleDrawerOpen = (sdk,titulo, precio, categoria, descripcion,img) => { //funcion abrir  

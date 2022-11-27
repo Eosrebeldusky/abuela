@@ -1,8 +1,9 @@
 import React, {useState} from "react";
-import { Button, TextField, Box, FormControl } from "@mui/material";
+import { Button, TextField, Box, FormControl, Input } from "@mui/material";
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
+
 function AddItem(props){
 
     
@@ -42,7 +43,8 @@ function AddItem(props){
                             <MenuItem value={'Vela Floreada'}>Vela FLoreada</MenuItem>
                             <MenuItem value={'Vela Aromatica'}>Vela Aromatica</MenuItem>
                             <MenuItem value={'Vela Tradicional'}>Vela Tradicional</MenuItem>
-                        </Select>                    
+                        </Select>
+                        <Input type = "img"> </Input>                    
                     <Button type="submit" variant="contained">Cargar Vela</Button>
                 </form>
         </>
