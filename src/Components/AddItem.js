@@ -21,8 +21,7 @@ function AddItem(props){
 
     const handleChange = e =>{ 
         const {name,value} = e.target;        
-        setValues({...values,[name]:value})
-        
+        setValues({...values,[name]:value})        
     }
      
     return( 
@@ -33,7 +32,7 @@ function AddItem(props){
                     <TextField label='Descripcion' type="text" name="descripcion" onChange={handleChange}/>                
                     <TextField label='Precio' type="text" name="precio" onChange={handleChange}/>               
                     <InputLabel id="select-categoria">Categoría</InputLabel>
-                        <Select
+                        <Select sx={{width:220}}
                         labelId="select-categoria"
                         id="select-categoria"          
                         label="Categoría"
@@ -44,7 +43,7 @@ function AddItem(props){
                             <MenuItem value={'Vela Aromatica'}>Vela Aromatica</MenuItem>
                             <MenuItem value={'Vela Tradicional'}>Vela Tradicional</MenuItem>
                         </Select>
-                        <Input type = "img"> </Input>                    
+                                 <TextField type="file"/>
                     <Button type="submit" variant="contained">Cargar Vela</Button>
                 </form>
         </>
