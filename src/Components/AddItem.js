@@ -30,23 +30,19 @@ function AddItem(props){
                 <form id= 'AddCandle' onSubmit={handleSubmit}>                    
                     <TextField label='Titulo' type="text" name="titulo" onChange={handleChange}/>              
                     <TextField label='Descripcion' type="text" name="descripcion" onChange={handleChange}/>                
-                    <TextField label='Precio' type="text" name="precio" onChange={handleChange}/>
-               
-        <InputLabel id="select-categoria">Categoría</InputLabel>
-        <Select
-          labelId="select-categoria"
-          id="select-categoria"          
-          label="Categoría"
-          name="categoria"          
-          onChange={handleChange}
-        >
-          <MenuItem value={'Vela Floreada'}>Vela FLoreada</MenuItem>
-          <MenuItem value={'Vela Aromatica'}>Vela Aromatica</MenuItem>
-          <MenuItem value={'Vela Tradicional'}>Vela Tradicional</MenuItem>
-        </Select>
-       
-     
-                    <TextField label='Categoría' type="text" name="categoria" onChange={handleChange}/>                    
+                    <TextField label='Precio' type="text" name="precio" onChange={handleChange}/>               
+                    <InputLabel id="select-categoria">Categoría</InputLabel>
+                        <Select
+                        labelId="select-categoria"
+                        id="select-categoria"          
+                        label="Categoría"
+                        name="categoria"          
+                        onChange={handleChange}
+                        >
+                            <MenuItem value={'Vela Floreada'}>Vela FLoreada</MenuItem>
+                            <MenuItem value={'Vela Aromatica'}>Vela Aromatica</MenuItem>
+                            <MenuItem value={'Vela Tradicional'}>Vela Tradicional</MenuItem>
+                        </Select>                    
                     <Button type="submit" variant="contained">Cargar Vela</Button>
                 </form>
         </>
