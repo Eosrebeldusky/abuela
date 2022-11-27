@@ -1,7 +1,7 @@
 import React, {useState} from "react";
+import TextField from "@material-ui/core/TextField";
 
-
-function AddItem(){
+function AddItem(props){
 
     
     const [values,setValues] = useState({
@@ -12,14 +12,14 @@ function AddItem(){
     })
 
     const handleSubmit = e => {
-        e.preventDefault();
-        console.log(values)
+        e.preventDefault();      
+        props.addOrEdit(values);
     }  
 
     const handleChange = e =>{ 
-        const {name,value} = e.target;
-        console.log(name, value)
-        setValues({...values,[name]:value} )
+        const {name,value} = e.target;        
+        setValues({...values,[name]:value})
+        
     }
      
     return( 
