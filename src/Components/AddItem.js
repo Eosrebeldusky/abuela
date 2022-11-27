@@ -1,6 +1,8 @@
 import React, {useState} from "react";
-import TextField from "@material-ui/core/TextField";
-
+import { Button, TextField, Box, FormControl } from "@mui/material";
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
 function AddItem(props){
 
     
@@ -24,28 +26,31 @@ function AddItem(props){
      
     return( 
         <>
-        <h1>Agregar item</h1>
-            <form id= 'AddCandle' onSubmit={handleSubmit}>
-                <label>
-                    Titulo:
-                    <input type="text" name="titulo" onChange={handleChange}/>
-                </label>
-                <label>
-                    Descripcion:
-                    <input type="text" name="descripcion" onChange={handleChange}/>
-                </label>
-                <label>
-                    Precio:
-                    <input type="text" name="precio" onChange={handleChange}/>
-                </label>
-                <label>
-                    Categoria:
-                    <input type="text" name="categoria" onChange={handleChange}/>
-                </label>                
-                <input type="submit" value="Submit"/>
-            </form>    
+            <h1>Agregar item</h1>
+                <form id= 'AddCandle' onSubmit={handleSubmit}>                    
+                    <TextField label='Titulo' type="text" name="titulo" onChange={handleChange}/>              
+                    <TextField label='Descripcion' type="text" name="descripcion" onChange={handleChange}/>                
+                    <TextField label='Precio' type="text" name="precio" onChange={handleChange}/>
+               
+        <InputLabel id="select-categoria">Categoría</InputLabel>
+        <Select
+          labelId="select-categoria"
+          id="select-categoria"          
+          label="Categoría"
+          name="categoria"          
+          onChange={handleChange}
+        >
+          <MenuItem value={'Vela Floreada'}>Vela FLoreada</MenuItem>
+          <MenuItem value={'Vela Aromatica'}>Vela Aromatica</MenuItem>
+          <MenuItem value={'Vela Tradicional'}>Vela Tradicional</MenuItem>
+        </Select>
+       
+     
+                    <TextField label='Categoría' type="text" name="categoria" onChange={handleChange}/>                    
+                    <Button type="submit" variant="contained">Cargar Vela</Button>
+                </form>
         </>
-        )
+    )
 }
 
 export default AddItem;
